@@ -1,0 +1,18 @@
+@import '../../../styles';
+:host {
+    padding: 25px;
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.fab-title {
+    display: flex;
+}
+
+.fab-title>button {
+    margin-left: auto;
+    margin-top: 12px;
+}

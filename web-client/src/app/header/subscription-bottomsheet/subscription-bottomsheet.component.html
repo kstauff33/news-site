@@ -1,0 +1,30 @@
+<div style="width: 100%">
+  <h3>Subscriptions</h3>
+  <app-redline></app-redline>
+  <span>Get push notifications for...</span>
+  <mat-list>
+    <mat-list-item>
+      <mat-checkbox class="example-margin" [(ngModel)]="all" [(indeterminate)]="any">All new content</mat-checkbox>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-checkbox class="example-margin" [(ngModel)]="news">News articles</mat-checkbox>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-checkbox class="example-margin" [(ngModel)]="opinion">Opinion pieces</mat-checkbox>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-checkbox class="example-margin" [(ngModel)]="podcasts">Podcasts</mat-checkbox>
+    </mat-list-item>
+  </mat-list>
+
+  <div>
+    <mat-form-field appearance="outline" class="email-field">
+      <mat-label>Get updates by email</mat-label>
+      <input matInput [(ngModel)]="email" name="foo" placeholder="Email address" />
+    </mat-form-field>
+  </div>
+  <div class="button-bar">
+    <button mat-button>Cancel</button>
+    <button mat-button color="primary">Save</button>
+  </div>
+</div>

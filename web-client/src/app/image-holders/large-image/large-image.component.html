@@ -1,0 +1,8 @@
+<div class="large-image-container">
+  <img
+    *ngIf="image || url"
+    class="large-image"
+    src="{{ image ? image.getLargeurl() : url }}"
+    alt="{{ image ? image.getAlttext() : null }}"
+  />
+</div>

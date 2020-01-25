@@ -1,0 +1,30 @@
+@import '../../../styles';
+:host {
+    max-width: 400px;
+    width: auto;
+}
+
+.title {
+    color: black;
+    font-size: 24px;
+}
+
+.big {
+    width: 400px;
+    height: 175px;
+    width: 100%;
+}
+
+.small {
+    height: 20px;
+    width: 100%;
+}
+
+.listen {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.padded {
+    margin-bottom: 20px;
+}

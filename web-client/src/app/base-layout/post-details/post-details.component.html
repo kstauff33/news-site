@@ -1,0 +1,78 @@
+<app-layout>
+  <div *ngIf="post; else preload">
+    <h2 class="title">{{ post.getTitle() }}</h2>
+    <app-redline></app-redline>
+    <div class="bottom">
+      <a class="grey" [routerLink]="'/authors/' + post.getAuthor().getId()">
+        <mat-icon>person</mat-icon>
+        <span class="author">{{ post.getAuthor().getName() }}</span>
+      </a>
+      <a class="grey left" [routerLink]="'/' + post.getTagsList()[0].getTag()">
+        <mat-icon>category</mat-icon>
+        <span class="author">{{ post.getTagsList()[0].getTag() }}</span>
+      </a>
+    </div>
+    <!-- <div class="image-holder">
+      <img class="image" src="{{ post.getImage().getLargeurl() }}" />
+    </div> -->
+    <app-large-image [image]="post.getImage()"></app-large-image>
+    <div class="post-body">
+      <p class="text-body">
+        {{ post.getText() }}
+      </p>
+      <div *ngIf="post.getTagsList()[0].getTag() == 'listen'">
+        <app-listen-item [post]="post"></app-listen-item>
+        <div class="download">
+          <a href="">Direct Download</a>
+        </div>
+      </div>
+      <app-redline></app-redline>
+      <a [routerLink]="'/authors/' + post.getAuthor().getId()">
+        <div class="grid" (click)="scroll()">
+          <img
+            src="{{
+              post
+                .getAuthor()
+                .getImage()
+                .getSmallurl()
+            }}"
+            class="image"
+            alt="{{
+              post
+                .getAuthor()
+                .getImage()
+                .getAlttext()
+            }}"
+          />
+          <div class="text-section">
+            <span class="author-name">{{ post.getAuthor().getName() }} </span>
+            <span class="grey">author</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <ng-template #preload>
+    <div>
+      <div class="placeholder small"></div>
+      <app-redline></app-redline>
+      <div class="bottom">
+        <a class="grey">
+          <mat-icon>person</mat-icon>
+          <div class="placeholder small"></div>
+        </a>
+        <a class="grey left">
+          <mat-icon>category</mat-icon>
+          <div class="placeholder small"></div>
+        </a>
+      </div>
+      <div class="placeholder big"></div>
+      <div class="post-body">
+        <div class="placeholder medium"></div>
+        <div class="placeholder medium"></div>
+        <div class="placeholder medium"></div>
+        <div class="placeholder medium"></div>
+      </div>
+    </div>
+  </ng-template>
+</app-layout>

@@ -1,0 +1,33 @@
+<div class="grid" *ngIf="post; else preload">
+  <img
+    src="{{ post.getImage().getSmallurl() }}"
+    class="image"
+    alt="{{ post.getImage().getAlttext() }}"
+  />
+
+  <div class="text-section">
+    <a
+      [routerLink]="'/' + post.getTagsList()[0].getTag() + '/' + post.getId()"
+      (click)="onclick()"
+      class="title"
+      >{{ post.getTitle() }}
+    </a>
+    <div class="bottom-text">
+      <a class="tag" [routerLink]="'/' + post.getTagsList()[0].getTag()">{{
+        post.getTagsList()[0].getTag()
+      }}</a>
+      <span class="fill-space"></span>
+      <span class="date">{{ post.getDate() }}</span>
+    </div>
+  </div>
+</div>
+
+<ng-template #preload>
+  <div class="grid">
+    <div class="placeholder image"></div>
+    <div class="text-section">
+      <div class="placeholder small"></div>
+      <div class="placeholder small"></div>
+    </div>
+  </div>
+</ng-template>

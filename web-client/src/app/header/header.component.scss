@@ -1,0 +1,99 @@
+@import '../../styles';
+@media only screen and (max-width:950px) {
+    #tab-nav {
+        display: none;
+    }
+    app-draf-list-button {
+        display: none;
+    }
+    app-login-button {
+        display: none;
+    }
+    app-install-button {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:950px) {
+    #menu-nav {
+        display: none;
+    }
+    #spacer {
+        margin-top: 50px;
+    }
+}
+
+@media only screen and (max-width:422px) {
+    .tagline {
+        font-size: 4.5vw !important;
+    }
+}
+
+@media only screen and (min-width:422px) {
+    .tagline {
+        font-size: 18px;
+    }
+}
+
+:host {
+    z-index: 21;
+}
+
+.tagline {
+    white-space: normal;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#logo {
+    width: 80%;
+    max-width: 175px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#banner {
+    background: #ffffff;
+}
+
+#tab-nav {
+    background-color: white;
+}
+
+.headerz {
+    background: $color-primary;
+    color: #ffffff;
+    height: 64px;
+}
+
+.fill-space {
+    flex: 1 1 auto;
+}
+
+.non-stick {
+    margin-top: 50px;
+}
+
+.stickyz {
+    position: fixed;
+    top: 0;
+    z-index: 21;
+}
+
+.sticky-nav {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    z-index: 21;
+}
+
+.containerz {
+    display: flex;
+}
+
+.box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}

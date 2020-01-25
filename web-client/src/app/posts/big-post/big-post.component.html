@@ -1,0 +1,24 @@
+<div *ngIf="post; else preload">
+  <a
+    [routerLink]="'/' + post.getTagsList()[0].getTag() + '/' + post.getId()"
+    (click)="onclick()"
+  >
+    <app-medium-image [image]="post.getImage()"></app-medium-image>
+    <h4>
+      <span class="title">{{ post.getTitle() }}</span>
+    </h4>
+  </a>
+  <div class="padded">{{ post.getTagline() }}</div>
+  <app-listen-item
+    [post]="post"
+    class="listen"
+    *ngIf="!!post.getAudiourl()"
+  ></app-listen-item>
+  <app-multi-panel [post]="post"></app-multi-panel>
+</div>
+
+<ng-template #preload>
+  <div class="placeholder big"></div>
+  <div class="placeholder small"></div>
+  <div class="placeholder small"></div>
+</ng-template>

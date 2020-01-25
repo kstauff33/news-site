@@ -1,0 +1,26 @@
+<header id="header">
+  <mat-toolbar>
+    <mat-toolbar-row class="headerz stickyz containerz">
+      <div class="box" style="margin-right: auto">
+        <app-menu-button (click)="toggleMenu()" id="menu-nav"></app-menu-button>
+        <span class="fill-space"></span>
+      </div>
+      <a [routerLink]="'/'">
+        <img id="logo" class="box" alt="Snews Logo" [src]="'assets/news-logo.svg'" />
+      </a>
+      <div class="box">
+        <span class="fill-space"></span>
+        <app-draf-list-button></app-draf-list-button>
+        <app-login-button></app-login-button>
+        <app-install-button></app-install-button>
+        <app-subscription-button></app-subscription-button>
+        <app-share-button></app-share-button>
+      </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="headerz non-stick">
+      <h1 class="tagline">No news is good news</h1>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <app-navigation id="tab-nav"></app-navigation>
+</header>
+<div id="spacer" style="display: none;"></div>

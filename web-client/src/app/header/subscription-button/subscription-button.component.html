@@ -1,0 +1,4 @@
+<button *ngIf="shouldShow" mat-icon-button (click)="subscribeToNotifications()" role="button" aria-label="Subcribe to notification">
+  <mat-icon *ngIf="subscribed" aria-label="Subscribe to notifications">notifications</mat-icon>
+  <mat-icon *ngIf="!subscribed" aria-label="Subscribe to notifications">notifications_none</mat-icon>
+</button>

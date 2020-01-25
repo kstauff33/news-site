@@ -1,0 +1,33 @@
+<button mat-icon-button aria-label="Share button" [matMenuTriggerFor]="menu" role="button">
+  <mat-icon aria-label="Share icon">share</mat-icon>
+</button>
+<mat-menu #menu="" style="padding: 0px">
+  <a href="https://twitter.com/intent/tweet?url={{ encodedUrl }}" class="link" target="_blank" rel="noopener noreferrer">
+    <button mat-menu-item class="twitter">
+      <mat-icon svgIcon="twitter"></mat-icon>
+      <span>Twitter</span>
+    </button>
+  </a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u={{ encodedUrl }}" class="link" target="_blank" rel="noopener noreferrer">
+    <button mat-menu-item class="facebook">
+      <mat-icon svgIcon="facebook"></mat-icon>
+      <span>Facebook</span>
+    </button>
+  </a>
+  <a href="http://www.reddit.com/submit?url={{ encodedUrl }}" class="link" target="_blank" rel="noopener noreferrer">
+    <button mat-menu-item class="reddit">
+      <mat-icon svgIcon="reddit"></mat-icon>
+      <span> Reddit </span>
+    </button>
+  </a>
+  <button mat-menu-item class="copy" ngxClipboard [cbContent]="url">
+    <mat-icon>file_copy</mat-icon>
+    <span>Copy</span>
+  </button>
+  <a class="link" target="_blank" rel="noopener noreferrer" href="mailto:?Body= {{ url }}">
+    <button mat-menu-item class="email">
+      <mat-icon>email</mat-icon>
+      <span>Email</span>
+    </button>
+  </a>
+</mat-menu>

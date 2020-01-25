@@ -1,0 +1,42 @@
+@import '../styles';
+.body {
+    z-index: -1;
+    min-height: 70%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.nav-container {
+    width: 75%;
+    max-width: 300px;
+}
+
+.box {
+    width: 50%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.red {
+  background-color: $color-primary;
+}
+
+.box:hover {
+    opacity: 1;
+}
+
+.sidenav {
+    height: 100%;
+}
+
+#scroll-container {
+    height: 100%;
+    overflow: scroll;
+}
+
+mat-icon {
+  margin: 12px;
+}

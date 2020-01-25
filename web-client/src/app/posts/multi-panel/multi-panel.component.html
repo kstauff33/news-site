@@ -1,0 +1,8 @@
+<div class="grid">
+  <a [routerLink]="'/' + post.getTagsList()[0].getTag()" class="red">{{
+    post.getTagsList()[0].getTag()
+  }}</a>
+  <a [routerLink]="'/authors/' + post.getAuthor().getId()" class="author"
+    >by {{ post.getAuthor().getName() }}</a
+  >
+</div>

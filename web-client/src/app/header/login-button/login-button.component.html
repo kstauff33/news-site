@@ -1,0 +1,11 @@
+<button mat-icon-button *ngIf="!showLabel" [routerLink]="'/account'" role="button" aria-label="Login to account">
+  <mat-icon *ngIf="isAuthenticated" aria-label="Login to account">person</mat-icon>
+  <mat-icon *ngIf="!isAuthenticated" aria-label="Login to account">person_outline</mat-icon>
+</button>
+<mat-list-item *ngIf="showLabel" [routerLink]="'/account'">
+  <mat-icon *ngIf="isAuthenticated" aria-label="Login to account" class="icon">person</mat-icon>
+  <mat-icon *ngIf="!isAuthenticated" aria-label="Login to account" class="icon">person_outline</mat-icon>
+
+  <span *ngIf="isAuthenticated" aria-label="See profile">Profile</span>
+  <span *ngIf="!isAuthenticated" aria-label="Login to account">Login or signup</span>
+</mat-list-item>

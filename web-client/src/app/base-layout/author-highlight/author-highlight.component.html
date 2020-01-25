@@ -1,0 +1,33 @@
+<h3 class="section-title">Top Authors</h3>
+<app-redline></app-redline>
+<div class="grid" *ngIf="authors && authors.length; else preload">
+  <a
+    *ngFor="let author of authors.slice(0, slice)"
+    class="item"
+    [routerLink]="'/authors/' + author.getId()"
+  >
+    <img
+      class="image"
+      [src]="author.getImage().getSmallurl()"
+      alt="author.getImage().getAlttext()"
+    />
+    <div class="name">{{ author.getName() }}</div>
+  </a>
+</div>
+<ng-template #preload>
+  <div class="grid">
+    <div *ngFor="let x of [1, 2, 3, 4]">
+      <div class="placeholder square"></div>
+      <div class="placeholder block"></div>
+    </div>
+  </div>
+</ng-template>
+<button
+  *ngIf="slice < authors.length"
+  role="button"
+  class="button"
+  mat-button
+  (click)="showMore()"
+>
+  <span class="more">More</span>
+</button>

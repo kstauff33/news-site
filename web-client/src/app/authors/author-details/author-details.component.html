@@ -1,0 +1,13 @@
+<app-layout>
+  <div class="container" *ngIf="!!author; else preload">
+    <app-large-image class="img" [image]="author.getImage()"></app-large-image>
+    <h1>{{ author.getName() }}</h1>
+    <app-redline></app-redline>
+    <div class="grid">
+      <app-big-post *ngFor="let post of posts" [post]="post"></app-big-post>
+    </div>
+  </div>
+  <ng-template #preload>
+    <div class="preload"></div>
+  </ng-template>
+</app-layout>

@@ -1,0 +1,67 @@
+@import '~@angular/material/theming';
+@include mat-core();
+$main-theme: ( 50: #f9e0e0, 100: #f0b3b3, 200: #e68080, 300: #db4d4d, 400: #d42626, 500: #cc0000, 600: #c70000, 700: #c00000, 800: #b90000, 900: #ad0000, A100: #ffd7d7, A200: #ffa4a4, A400: #ff7171, A700: #ff5858, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #ffffff, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000));
+$accent-theme: ( 50: #eceff1, 100: #cfd8dc, 200: #b0bec5, 300: #90a4ae, 400: #78919c, 500: #607d8b, 600: #587583, 700: #4e6a78, 800: #44606e, 900: #334d5b, A100: #abe1ff, A200: #78ceff, A400: #45bcff, A700: #2bb3ff, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000));
+$primary: mat-palette($main-theme);
+$accent: mat-palette($accent-theme);
+$warn: mat-palette($mat-red);
+$theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+$color-primary: mat-color($primary, 500);
+$color-secondary: mat-color($accent, 900);
+$text-accent: #787878;
+$border-radius: 5px;
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.placeholder {
+    background-color: #c1c1c1;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: $border-radius;
+    width: 100%;
+}
+
+img {
+    border-radius: $border-radius;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+img:hover {
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0.66;
+}
+
+.fab {
+    right: 50px;
+    bottom: 50px;
+    position: fixed;
+}
+
+.fab2 {
+    right: 50px;
+    bottom: 100px;
+    position: fixed;
+}

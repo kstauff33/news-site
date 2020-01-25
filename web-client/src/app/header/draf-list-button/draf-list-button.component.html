@@ -1,0 +1,8 @@
+<button mat-icon-button *ngIf="!showLabel && isAuthenticated" [routerLink]="'/admin/posts'" role="button" aria-label="See drafts">
+  <mat-icon aria-label="draft list">storage</mat-icon>
+</button>
+
+<mat-list-item *ngIf="showLabel && isAuthenticated" [routerLink]="'/admin/posts'">
+  <mat-icon aria-label="See drafts" class="icon">storage</mat-icon>
+  <span aria-label="See drafts">Drafts</span>
+</mat-list-item>

@@ -1,0 +1,21 @@
+<h3 class="section-title">{{ sectionTitle }}</h3>
+<app-redline></app-redline>
+
+<div *ngIf="posts && posts.length > 0; else preload">
+  <app-small-post
+    *ngFor="let post of posts.slice(0, slice)"
+    [post]="post"
+  ></app-small-post>
+  <button
+    *ngIf="slice < posts.length"
+    role="button"
+    class="button"
+    mat-button
+    (click)="showMore()"
+  >
+    <span class="more">More</span>
+  </button>
+</div>
+<ng-template #preload>
+  <app-small-post *ngFor="let x of [0, 1, 2]"></app-small-post>
+</ng-template>

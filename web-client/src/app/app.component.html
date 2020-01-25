@@ -1,0 +1,24 @@
+<mat-sidenav-container class="sidenav">
+  <mat-sidenav #sidenav mode="push" [(opened)]="open" class="nav-container">
+    <div class="red">
+      <img class="box" alt="Snews Logo" [src]="'assets/news-logo.svg'" />
+    </div>
+    <mat-list>
+      <mat-list-item *ngFor="let tab of tabs" [routerLink]="tab.link" (click)="open = !open">
+        <mat-icon>{{ tab.icon }}</mat-icon>
+        {{ tab.label }}
+      </mat-list-item>
+      <app-redline></app-redline>
+      <app-login-button [showLabel]="true" (click)="open = !open"></app-login-button>
+      <app-draf-list-button [showLabel]="true" (click)="open = !open"></app-draf-list-button>
+      <app-install-button></app-install-button>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content id="scroll-container" (scroll)="onScroll($event)">
+    <app-header> </app-header>
+    <div class="body">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package life.kylestauffer.snews;
+
+import "base.proto";
+option java_generic_services = true;
+option java_package = "life.kylestauffer.snews.generated";
+
+/////////////////////////////////
+// Tags
+/////////////////////////////////
+message GetTagsRequest {
+}
+message GetTagsResponse {
+    repeated Tag tags = 1;
+}
+service TagService {
+    rpc GetTags (GetTagsRequest) returns (stream GetTagsResponse) {
+    }
+}
+
+/////////////////////////////////
+// Posts
+/////////////////////////////////
+message SavePostRequest {
+    SimplePost post = 1;
+}
+message SavePostResponse {
+    SimplePost post = 1;
+}
+
+message GetDraftPostsRequest {
+    int32 page = 1;
+}
+message GetDraftPostsResponse {
+    repeated SimplePost posts = 1;
+}
+
+message GetPostStatsRequest {
+}
+message GetPostStatsResponse {
+    string averageWC = 1;
+    string averageTaglineWC = 2;
+}
+
+service AdminPostService {
+    rpc SavePost (SavePostRequest) returns (stream SavePostResponse) {
+    }
+    rpc PublishPost (SavePostRequest) returns (stream SavePostResponse) {
+    }
+    rpc GetDraftPosts (GetDraftPostsRequest) returns (stream GetDraftPostsResponse) {
+    }
+    rpc GetPostStats (GetPostStatsRequest) returns (stream GetPostStatsResponse) {
+    }
+}
+
+/////////////////////////////////
+// Images
+/////////////////////////////////
+message UploadImageRequest {
+    bytes data = 1;
+    string filetype = 2;
+    string altText = 3;
+}
+
+message UploadImageResponse {
+    Image image = 1;
+}
+
+service ImageService {
+    rpc UploadImage (UploadImageRequest) returns (stream UploadImageResponse) {
+    }
+}

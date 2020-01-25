@@ -1,0 +1,71 @@
+<!-- <div *ngIf="!auth || !auth.isAuthenticated" class="unauth">
+  <h1>Register or Login</h1>
+  <app-redline></app-redline>
+  <form (ngSubmit)="onSubmit()" #postForm="ngForm" class="form">
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Username</mat-label>
+      <input matInput [(ngModel)]="username" name="title" placeholder="Title" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="password" name="title" placeholder="Title" />
+    </mat-form-field>
+  </form>
+  <div class="actions">
+    <button mat-button (click)="login()" class="btn field">Login</button>
+    <button mat-button (click)="signup()" class="btn field">Sign up</button>
+  </div>
+</div> -->
+<div *ngIf="auth && auth.isAuthenticated">
+  <button mat-button (click)="logout()">Log out</button>
+</div>
+
+
+
+<div *ngIf="!auth || !auth.isAuthenticated" class="unauth">
+  <h1>Login or Signup</h1>
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Login
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <form (ngSubmit)="onSubmit()" #postForm="ngForm" class="form">
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Username</mat-label>
+          <input matInput [(ngModel)]="username" (keyup.enter)="login()" name="title" placeholder="Username" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Password</mat-label>
+          <input matInput [(ngModel)]="password" (keyup.enter)="login()" name="title" placeholder="Password" type="password" />
+        </mat-form-field>
+      </form>
+      <div class="actions">
+        <button mat-button (click)="login()" class="btn field">Login</button>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Signup
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <form (ngSubmit)="onSubmit()" #postForm="ngForm" class="form">
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Username</mat-label>
+          <input matInput [(ngModel)]="username" (keyup.enter)="signup()" name="title" placeholder="Username" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Password</mat-label>
+          <input matInput [(ngModel)]="password" (keyup.enter)="signup()" name="title" placeholder="Password" type="password">
+        </mat-form-field>
+      </form>
+      <div class="actions">
+        <button mat-button (click)="signup()" class="btn field">Sign up</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Create an article</h1>
+  <app-redline></app-redline>
+  <div [hidden]="!model.isSaved || model.lastSave == null">
+    Last saved at {{ model.lastSave != null ? model.lastSave.toLocaleTimeString() : '' }}
+  </div>
+  <div [hidden]="model.isSaved || model.lastSave == null">Saving...</div>
+  <form (ngSubmit)="onSubmit()" #postForm="ngForm">
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="model.title" name="title" placeholder="Title" />
+    </mat-form-field>
+
+      {{ model.tags }}
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Tags</mat-label>
+      <mat-select multiple [(value)]="model.tags">
+        <mat-option [value]="tag" *ngFor="let tag of tags">{{ tag.getTag() }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <app-image-uploader [image]="model.image" (imageEvent)="onImage($event)" class="field image-upload"></app-image-uploader>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Tagline</mat-label>
+      <input matInput [(ngModel)]="model.tagline" name="tagline" placeholder="Tagline" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Podcast Url (if applicable)</mat-label>
+      <input matInput [(ngModel)]="model.podcastUrl" name="podcastUrl" placeholder="Podcast Url" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Body</mat-label>
+      <textarea appTextInputDirective (highlightEvent)="onTextHighlighted($event)" cdkTextareaAutosize [(ngModel)]="model.body" name="body" matInput placeholder="Body"></textarea>
+    </mat-form-field>
+  </form>
+  <div appCommentButton id="foo" *ngIf="highlightState.isHighlighted" style="position: absolute;">HELLOOO</div>
+
+  <button mat-button role="button" (click)="publish()" class="red" *ngIf="model.canPublish()">
+    Publish
+  </button>
+</div>

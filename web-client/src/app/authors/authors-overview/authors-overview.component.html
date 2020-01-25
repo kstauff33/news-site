@@ -1,0 +1,17 @@
+<app-layout>
+  <div>
+    <h1 class="title">Authors</h1>
+    <app-redline></app-redline>
+    <div class="grid">
+      <div class="item" *ngFor="let author of authors">
+        <a class="name" [routerLink]="'/authors/' + author.getId()">
+          <app-medium-image [image]="author.getImage()"></app-medium-image>
+          <h4>{{ author.getName() }}</h4>
+        </a>
+      </div>
+    </div>
+    <button role="button" class="button" mat-button (click)="showMore()">
+      <span class="more">More</span>
+    </button>
+  </div>
+</app-layout>

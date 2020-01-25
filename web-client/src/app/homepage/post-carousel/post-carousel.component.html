@@ -1,0 +1,23 @@
+<ngb-carousel *ngIf="posts" class="carousel slide">
+  <ng-template ngbSlide *ngFor="let post of posts">
+    <div
+      [routerLink]="'/' + post.getTagsList()[0].getTag() + '/' + post.getId()"
+    >
+      <app-large-image [image]="post.getImage()"></app-large-image>
+      <div class="carousel-caption">
+        <h3>{{ post.getTitle() }}</h3>
+        <p>{{ post.getTagline() }}</p>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<!-- carousel-indicators
+carousel-inner
+carousel-item
+carousel-control-prev
+carousel-control-prev-icon
+sr-only
+carousel-control-next
+carousel-control-next-icon
+sr-only -->

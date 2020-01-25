@@ -1,0 +1,21 @@
+@import '../../../styles';
+.grid {
+    display: grid;
+    border: 2px solid $color-primary;
+    border-radius: $border-radius;
+    grid-template-columns: 50% 50%;
+}
+
+.grid>* {
+    padding: 10px;
+    text-align: center;
+}
+
+.red {
+    color: white;
+    background-color: $color-primary;
+}
+
+.author {
+    color: $color-secondary;
+}

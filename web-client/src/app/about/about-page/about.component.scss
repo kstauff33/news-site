@@ -1,0 +1,21 @@
+@media only screen and (max-width: 950px) {
+    .about {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 32px;
+    }
+}
+
+@media only screen and (min-width: 950px) {
+    .about {
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 32px;
+    }
+}
+
+:host {
+    padding: 25px;
+}

@@ -1,0 +1,42 @@
+<div class="field image-upload">
+  <div class="image-input">
+    <label for="image">Image</label>
+    <input id="image" type="file" name="pic" accept="image/*" />
+  </div>
+
+  <mat-form-field appearance="outline" class="field">
+    <mat-label>Alt Text</mat-label>
+    <input
+      style="width: 100%"
+      matInput
+      [(ngModel)]="alttext"
+      name="Alt Text"
+      placeholder="Alt Text"
+    />
+  </mat-form-field>
+  <div>
+    <button
+      *ngIf="!saving && !image && file && alttext"
+      (click)="save()"
+      class="upload-button"
+      [disabled]="!alttext || !file"
+      mat-icon-button
+      matTooltip="Upload image"
+      aria-label="Upload image"
+    >
+      <mat-icon>cloud_upload</mat-icon>
+    </button>
+    <mat-icon *ngIf="image" class="indicator">check</mat-icon>
+    <mat-spinner
+      *ngIf="saving && !saved"
+      class="indicator"
+      [diameter]="20"
+    ></mat-spinner>
+  </div>
+</div>
+
+<div *ngIf="saved" class="image-preview">
+  <!-- <img src="https://picsum.photos/100/100?q=" /> -->
+  <!-- <app-medium-image [url]="'https://picsum.photos/400/175?q='" ></app-medium-image> -->
+  <!-- <app-large-image [url]="'https://picsum.photos/930/350?q='"></app-large-image> -->
+</div>

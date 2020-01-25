@@ -1,0 +1,16 @@
+@import '../../../styles.scss';
+.medium-image-container {
+    width: 100%;
+    height: 0;
+    padding-top: 44%;
+    position: relative;
+    background-color: #c1c1c1;
+    border-radius: $border-radius;
+}
+
+.medium-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}

@@ -1,0 +1,34 @@
+@import '../../../styles.scss';
+#image {
+    margin-left: 20px;
+}
+
+.image-upload {
+    display: flex;
+}
+
+.image-input {
+    margin-top: 3%;
+    margin-bottom: auto;
+    display: flex;
+}
+
+.field {
+    width: 100%;
+}
+
+.text-input {
+    width: 100%;
+}
+
+.upload-button {
+    margin: 12px;
+}
+
+.indicator {
+    margin: 20px;
+}
+
+.image-preview {
+    margin: 20px;
+}

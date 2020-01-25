@@ -1,0 +1,47 @@
+@media only screen and (min-width:775px) {
+    .grid {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media only screen and (max-width:775px) {
+    .grid {
+        grid-template-columns: auto;
+    }
+}
+
+.grid {
+    margin-top: 10px;
+    display: grid;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    padding-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.preload {
+    width: 100%;
+}
+
+.item {
+    margin: auto;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+.button {
+    width: 100%;
+}
+
+.image-container {
+    height: auto;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.name {
+    font-size: 29px; // font-weight: bold;
+}

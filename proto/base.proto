@@ -1,0 +1,198 @@
+syntax = "proto3";
+
+package life.kylestauffer.snews;
+
+import "google/protobuf/timestamp.proto";
+
+option java_generic_services = true;
+option java_package = "life.kylestauffer.snews.generated";
+
+enum PostType {
+  HOME = 0;
+  NEWS = 1;
+  OPINION = 2;
+  FEATURES = 3;
+  LISTEN = 4;
+  WATCH = 5;
+  AUTHORS = 6;
+  ANALYTICS = 7;
+}
+
+message SimplePost {
+    string id = 1;
+    string title = 2;
+    google.protobuf.Timestamp date = 3;
+    string text = 4;
+    string tagline = 5;
+
+    Author author = 6;
+    Image image = 7;
+    repeated Tag tags = 8;
+
+    string audioUrl = 9;
+    repeated string contextUrls = 10;
+}
+
+message Tag {
+    string id = 1;
+    string tag = 2;
+}
+
+message Image {
+    string id = 1;
+    string smallUrl = 2;
+    string mediumUrl = 3;
+    string largeUrl = 4;
+    string altText = 5;
+}
+
+message Author {
+    string id = 1;
+    string name = 2;
+    Image image = 4;
+}
+
+message Subscription {
+    string id = 1;
+    bool news = 2;
+    bool opinion = 3;
+    bool podcasts = 4;
+    string email = 5;
+
+}
+
+service PostService {
+    rpc GetPosts (GetPostsRequest) returns (stream GetPostsResponse) {
+    }
+    rpc GetPost (GetPostRequest) returns (stream GetPostResponse) {
+    }
+    rpc GetTopPosts (GetTopPostsRequest) returns (stream GetTopPostsResponse) {
+    }
+    rpc GetRecentPosts (GetRecentPostsRequest) returns (stream GetRecentPostsResponse) {
+    }
+}
+
+// Get Multiple
+message GetPostsRequest {
+    string type = 1;
+    int32 page = 2;
+}
+message GetPostsResponse {
+    repeated SimplePost post = 1;
+}
+
+// Get One
+message GetPostRequest {
+    string id = 1;
+}
+message GetPostResponse {
+    SimplePost post = 1;
+}
+
+// Get Top posts
+message GetTopPostsRequest {
+    string type = 1;
+}
+message GetTopPostsResponse {
+    repeated SimplePost post = 1;
+}
+
+// Get recent posts
+message GetRecentPostsRequest {
+    string type = 1;
+}
+message GetRecentPostsResponse {
+    repeated SimplePost post = 1;
+}
+
+service AuthorService {
+    rpc GetAuthors(GetAuthorsRequest) returns (stream GetAuthorsResponse) { }
+    rpc GetAuthor(GetAuthorRequest) returns (stream GetAuthorResponse) { }
+}
+
+message GetAuthorsRequest {
+    int32 page = 1; 
+}
+message GetAuthorsResponse {
+    repeated Author authors = 1;
+}
+
+message GetAuthorRequest {
+    string id = 1;
+}
+message GetAuthorResponse {
+    Author author = 1;
+    repeated SimplePost posts = 2;
+}
+
+/////////////////////////////////
+// Subscriptions
+/////////////////////////////////
+message SubscriptionRequest {
+    Subscription subscription = 1;
+}
+
+message GetSubscriptionRequest {
+    string id = 1;
+}
+
+message SubscriptionResponse {
+    Subscription subscription = 1;
+}
+
+service SubscriptionService {
+    rpc Subscribe (SubscriptionRequest) returns (stream SubscriptionResponse) {
+    }
+
+    rpc GetSubscription (GetSubscriptionRequest) returns (stream SubscriptionResponse) {
+    }
+}
+
+
+/////////////////////////////////
+// Auth
+/////////////////////////////////
+message LoginRequest {
+    string username = 1;
+    string password = 2;
+}
+
+
+message LoginResponse {
+    string token = 1;
+    google.protobuf.Timestamp expiration = 2;
+    UserRole role = 3;
+}
+
+message RegistrationRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message TokenValidationRequest {
+    string token = 1;
+}
+
+message TokenValidationResponse {
+    bool valid = 1;
+    UserRole role = 2;
+}
+service LoginService {
+    rpc Login (LoginRequest) returns (stream LoginResponse) {
+    }
+
+    rpc Register (RegistrationRequest) returns (stream LoginResponse) {
+    }
+    rpc ValidateToken (TokenValidationRequest) returns (stream TokenValidationResponse) {
+    }
+}
+
+enum UserRole {
+  ANONYMOUS = 0;
+  READER = 1;
+  AUTHOR = 2;
+  EDITOR = 3;
+  ADMIN = 4;
+  SUPERADMIN= 5;
+}
+
