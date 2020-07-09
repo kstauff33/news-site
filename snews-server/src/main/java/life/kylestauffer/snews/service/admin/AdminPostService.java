@@ -52,9 +52,11 @@ public class AdminPostService extends AdminPostServiceGrpc.AdminPostServiceImplB
             case READER:
                 return;
             case AUTHOR:
-                Optional<PostModel> byId = postDatabase.findById(postModel.getId());
-                if (!byId.isPresent() || !byId.get().getAuthor().getId().equals(currentUser.getAuthor().getId())) {
-                    return;
+                if (postModel.getId() != null) {
+                    Optional<PostModel> byId = postDatabase.findById(postModel.getId());
+                    if (!byId.isPresent() || !byId.get().getAuthor().getId().equals(currentUser.getAuthor().getId())) {
+                        return;
+                    }
                 }
                 break;
             case EDITOR:

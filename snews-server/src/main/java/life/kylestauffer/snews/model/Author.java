@@ -1,7 +1,5 @@
 package life.kylestauffer.snews.model;
 
-import javafx.application.Application;
-import life.kylestauffer.snews.auth.ApplicationUser;
 import life.kylestauffer.snews.generated.Base;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
