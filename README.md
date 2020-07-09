@@ -1,5 +1,10 @@
 # news-site
 
+A website I built to be a news content delivery site. Built using Angulur frontend, grpc proxy middleware, a Spring Boot backend, Mysql database, and gRPC for communication. 
+
+[Check it out running](https://snews.kylestauffer.life)
+
+
 # Serving the web client
 cd web-client
 ng serve
